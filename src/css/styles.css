@@ -1,0 +1,19 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    gap: 0;
+}
+
+.board-tile {
+    border: 1px solid black;
+    background-color: white;
+}
+
+.board-tile.hit {
+    background-color: red;
+}
+
+.board-tile.miss {
+    background-color: gray;
+}
