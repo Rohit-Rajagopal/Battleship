@@ -1,7 +1,7 @@
 import { Ship } from "./ship.js"
 
 class Gameboard {
-    constructor(length, breadth) {
+    constructor(length = 10, breadth = 10) {
 
         this.board = []
         for (let i = 0; i < length; i++) {
