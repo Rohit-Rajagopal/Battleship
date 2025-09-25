@@ -13,7 +13,8 @@ class Gameboard {
 
         this.ships_id = new Map();
         this.id_ships = new Map();
-        this.num_ships = 0
+        this.num_ships = 0;
+        this.sunk_ships = 0;
     }
 
     createShip(length) {
@@ -65,6 +66,27 @@ class Gameboard {
             }
         }
         return true;
+    }
+
+    recieveAttack(x, y) {
+        if (this.board[x][y] === -1) {
+            this.board[x][y] = -3;
+            return false;
+        }
+        const ship = this.id_ships.get(this.board[x][y]);
+        ship.hit();
+        if (ship.isSunk()) {
+            this.sunk_ships += 1
+        }
+        this.board[x][y] = -2;
+        return true;
+    }
+
+    isSunkAll() {
+        if (this.sunk_ships === this.num_ships) {
+            return true;
+        }
+        return false;
     }
 }
 
