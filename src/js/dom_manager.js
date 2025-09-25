@@ -6,12 +6,15 @@ class DomManager {
         this.winDisplay = document.querySelector(".win-indicator");
     }
 
-    renderBoard(board) {
+    renderBoard(player) {
+        this.boardDisplay.innerHTML = '';
+        const board = player.board.board;
         for (let i = 0; i < board.length; i ++) {
             for (let j = 0; j < board[0].length; j ++) {
                 const newButton = document.createElement("button");
 
                 newButton.classList.add('board-tile');
+                newButton.value = `${i},${j}`;
                 if (board[i][j] === -2) {
                     newButton.classList.add('hit');
                     newButton.disabled = true;
@@ -25,6 +28,8 @@ class DomManager {
             }
         }
     }
+
+    
 }
 
 export { DomManager };

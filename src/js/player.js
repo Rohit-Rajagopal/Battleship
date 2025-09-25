@@ -6,6 +6,14 @@ class HumanPlayer {
         this.type = 'human';
         this.board = new Gameboard();
     }
+
+    temp_populate() {
+        this.board.placeShip([0, 0], 5, 0);
+        this.board.placeShip([2, 0], 4, 0);
+        this.board.placeShip([4, 0], 3, 0);
+        this.board.placeShip([6, 0], 3, 0);
+        this.board.placeShip([8, 0], 2, 1);
+    }
 }
 
 class ComputerPlayer {

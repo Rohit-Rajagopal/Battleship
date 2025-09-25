@@ -3,11 +3,17 @@ import { DomManager } from "./js/dom_manager";
 import './css/styles.css';
 
 const player = new HumanPlayer('xyz');
-player.board.placeShip([0, 0], 5, 1)
-player.board.recieveAttack(0, 0)
-player.board.recieveAttack(0, 1)
-player.board.recieveAttack(1, 0)
-
+player.temp_populate();
 const manager = new DomManager();
 
-manager.renderBoard(player.board.board);
+const board = document.querySelector(".board");
+board.addEventListener("click", (e) => {
+    if (e.target.nodeName == "BUTTON") {
+        let x, y;
+        [x, y] = e.target.value.split(',');
+        player.board.recieveAttack(Number(x), Number(y));
+        manager.renderBoard(player);
+    }
+});
+
+manager.renderBoard(player);

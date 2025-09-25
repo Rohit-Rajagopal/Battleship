@@ -28,7 +28,7 @@ class Gameboard {
     canPlace(coords, length, alignment) {
         let x, y;
         [x, y] = coords;
-        if (x < 0 || y < 0 || x >= this.board.length || y >= this.board[0].length) {
+        if (x < 0 || y < 0 || x + length - 1 >= this.board.length || y + length - 1 >= this.board[0].length) {
             return false;
         }
         if (alignment === 0) {
