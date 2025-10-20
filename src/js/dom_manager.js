@@ -32,6 +32,10 @@ class DomManager {
     displayWinner(player) {
         this.winDisplay.textContent = `${player.name} wins!`;
     }
+
+    displayPlayerTurn(player) {
+        this.turnDisplay.textContent = `${player.name}'s turn`;
+    }
 }
 
 export { DomManager };
