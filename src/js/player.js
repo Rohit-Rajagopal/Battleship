@@ -24,15 +24,23 @@ class ComputerPlayer {
         this.getNext = this.getRandomCoords();
     }
 
+    temp_populate() {
+        this.board.placeShip([0, 0], 5, 0);
+        this.board.placeShip([2, 0], 4, 0);
+        this.board.placeShip([4, 0], 3, 0);
+        this.board.placeShip([6, 0], 3, 0);
+        this.board.placeShip([8, 0], 2, 1);
+    }
+
     getRandomCoords(height = 10, width = 10) {
         const allCoords = [];
         for (let x = 0; x < height; x ++) {
             for(let y = 0; y < width; y ++) {
-                allCoords.push[[x, y]];
+                allCoords.push([x, y]);
             }
         }
 
-        for (let i = allCoords.length - 1; i > 0; i ++) {
+        for (let i = allCoords.length - 1; i > 0; i --) {
             const j = Math.floor(Math.random() * (i + 1));
             [allCoords[i], allCoords[j]] = [allCoords[j], allCoords[i]];
         }

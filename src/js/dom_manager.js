@@ -29,7 +29,9 @@ class DomManager {
         }
     }
 
-    
+    displayWinner(player) {
+        this.winDisplay.textContent = `${player.name} wins!`;
+    }
 }
 
 export { DomManager };
